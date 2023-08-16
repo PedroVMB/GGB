@@ -1,4 +1,4 @@
-package br.edu.unijorge.GGB.entitys;
+package br.edu.unijorge.GGB.domain.user;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -6,6 +6,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.io.Serial;
 import java.util.Collection;
 import java.util.List;
 
@@ -16,27 +17,29 @@ import java.util.List;
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class User implements UserDetails {
+
+    @Serial
+    public static final Long serialVersionUIS = 1L;
+
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "ID")
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @Column(name = "LOGIN")
     private String login;
+
     @Column(name = "PASSWORD")
     private String password;
+
     @Column(name = "ROLE")
+    @Enumerated(EnumType.STRING)
     private UserRole role;
 
-    public User(String login, String password, UserRole role){
-        this.login = login;
-        this.password = password;
-        this.role = role;
-    }
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        if(this.role == UserRole.ADMIN) return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_USER"));
-        else return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+        return List.of(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
     @Override

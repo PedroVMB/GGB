@@ -1,5 +1,6 @@
-package br.edu.unijorge.GGB.entitys;
+package br.edu.unijorge.GGB.domain.tags;
 
+import br.edu.unijorge.GGB.domain.news.News;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

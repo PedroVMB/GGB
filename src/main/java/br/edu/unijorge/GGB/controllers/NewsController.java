@@ -1,6 +1,6 @@
 package br.edu.unijorge.GGB.controllers;
 
-import br.edu.unijorge.GGB.entitys.News;
+import br.edu.unijorge.GGB.domain.news.News;
 import br.edu.unijorge.GGB.services.INewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

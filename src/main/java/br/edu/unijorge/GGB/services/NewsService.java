@@ -1,6 +1,6 @@
 package br.edu.unijorge.GGB.services;
 
-import br.edu.unijorge.GGB.entitys.News;
+import br.edu.unijorge.GGB.domain.news.News;
 import br.edu.unijorge.GGB.exceptions.StorageException;
 import br.edu.unijorge.GGB.repositories.NewsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
